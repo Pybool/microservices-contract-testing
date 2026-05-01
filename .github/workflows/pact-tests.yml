@@ -5,60 +5,66 @@ on:
     branches:
       - master
 
+env:
+  BROKER_URL: ${{ secrets.PACT_BROKER_URL }}
+
 jobs:
   consumer-tests:
     runs-on: ubuntu-latest
-    env:
-      BROKER_URL: https://curvy-pillows-camp.loca.lt
+
     steps:
       - uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: "18"
 
       - name: Install & Test Node Consumer
+        working-directory: consumer-node
         run: |
-          cd consumer-node
           npm install
           npm run test:pact
         env:
           PACT_BROKER_BASE_URL: ${{ env.BROKER_URL }}
 
       - name: Install & Test Orders Service
+        working-directory: orders-service
         run: |
-          cd orders-service
           npm install
           npm run test:pact
         env:
           PACT_BROKER_BASE_URL: ${{ env.BROKER_URL }}
 
-  # --- PROVIDER JOB ---
   provider-verification:
     needs: consumer-tests
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: "3.10"
+
+      - name: Install Provider dependencies
+        working-directory: provider-python
+        run: pip install -r requirements.txt
 
       - name: Verify Provider Python
-        run: |
-          cd provider-python
-          pip install -r requirements.txt
-          pytest test_provider_pact.py -v
+        working-directory: provider-python
+        run: pytest test_provider_pact.py -v
         env:
           PACT_BROKER_URL: ${{ env.BROKER_URL }}
 
+      - name: Install Users Service dependencies
+        working-directory: users-service
+        run: pip install -r requirements.txt
+
       - name: Verify Users Service
-        run: |
-          cd users-service
-          pip install -r requirements.txt
-          pytest test_provider_pact.py -v
+        working-directory: users-service
+        run: pytest test_provider_pact.py -v
         env:
           PACT_BROKER_URL: ${{ env.BROKER_URL }}
 
