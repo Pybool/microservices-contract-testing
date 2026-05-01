@@ -7,6 +7,7 @@ from app import app, USERS
 import os
 
 BROKER_URL = os.getenv("BROKER_URL", "http://16.171.160.56:9292")
+BUILD_URL = os.getenv("BUILD_URL")
 
 
 def check_broker():
@@ -74,6 +75,7 @@ def test_pact_with_consumer():
         consumer_version_selectors=[{"latest": True}],
         publish_verification_results=True,
         provider_version=os.getenv("GITHUB_SHA", "dev"),
+        build_url = BUILD_URL,
         verbose=True,
     )
     

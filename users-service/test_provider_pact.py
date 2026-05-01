@@ -10,6 +10,7 @@ from pact import Verifier
 from app import app, _users
 
 BROKER_URL = os.getenv("BROKER_URL", "http://16.171.160.56:9292")
+BUILD_URL = os.getenv("BUILD_URL")
 
 
 def check_broker():
@@ -81,6 +82,7 @@ def test_pact_verification_against_orders_service():
         publish_verification_results=True,
         provider_version=os.getenv("GITHUB_SHA", "dev"),
         verbose=True,
+        build_url = BUILD_URL
     )
     
     assert output == 0, f"Pact verification FAILED.\nThe Users service does not satisfy the Orders service contract.\n {logs}"

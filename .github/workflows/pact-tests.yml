@@ -8,6 +8,7 @@ on:
 env:
   PACT_BROKER_URL: ${{ secrets.PACT_BROKER_URL }}
   GITHUB_SHA: ${{ github.sha }}
+  BUILD_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
 jobs:
   consumer-tests:
