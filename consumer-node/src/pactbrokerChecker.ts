@@ -1,8 +1,9 @@
 import { config } from "./config";
 
-const BROKER_URL = config.PACT_BROKER_URL || "http://16.171.160.56:9292";
+const BROKER_URL = config?.PACT_BROKER_URL || "http://16.171.160.56:9292";
 
 export async function checkBroker() {
+  console.log("BROKER_URL ==> ", BROKER_URL)
   try {
     const res = await fetch(BROKER_URL);
     if (!res.ok) {
