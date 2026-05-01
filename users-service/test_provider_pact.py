@@ -74,14 +74,13 @@ def test_pact_verification_against_orders_service():
         provider_base_url=PROVIDER_URL,
     )
 
-    output, _ = verifier.verify_with_broker(
+    output, logs = verifier.verify_with_broker(
         broker_url="http://16.171.160.56:9292",
         provider="users-service",
         consumer_version_selectors=[{"latest": True}],
+        publish_verification_results=True,
+        provider_version=os.getenv("GITHUB_SHA", "dev"),
         verbose=True,
     )
-
-    assert output == 0, (
-        "\n\nPact verification FAILED.\n"
-        "The Users service does not satisfy the Orders service contract.\n"
-    )
+    
+    assert output == 0, f"Pact verification FAILED.\nThe Users service does not satisfy the Orders service contract.\n {logs}"

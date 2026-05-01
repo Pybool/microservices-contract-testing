@@ -68,15 +68,15 @@ def test_pact_with_consumer():
         provider_base_url=PROVIDER_URL,
     )
 
-    output, _ = verifier.verify_with_broker(
+    output, logs = verifier.verify_with_broker(
         broker_url="http://16.171.160.56:9292",
         provider="provider-python",
         consumer_version_selectors=[{"latest": True}],
         publish_verification_results=True,
-        provider_version=os.getenv("GIT_COMMIT", "dev"),
+        provider_version=os.getenv("GITHUB_SHA", "dev"),
         verbose=True,
     )
     
-    assert output == 0, "Pact verification failed — see output above for details"
+    assert output == 0, f"Pact verification FAILED.\nThe Provider does not satisfy the Consumer Node contract.\n {logs}"
 
 
