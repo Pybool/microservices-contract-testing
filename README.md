@@ -107,7 +107,7 @@ npm run test:all
 ```
 
 ### Publish pact after running consumer
-npx pact-broker publish ./pacts --consumer-app-version=1.0.0 --broker-base-url=http://localhost:9292
+npx pact-broker publish ./pacts --consumer-app-version=1.0.0 --broker-base-url=http://16.171.160.56:9292
 
 ### Deploy docker pact broker
 docker run -d -p 9292:9292 -e PACT_BROKER_DATABASE_ADAPTER=sqlite -e PACT_BROKER_DATABASE_NAME=/tmp/pact_broker.sqlite pactfoundation/pact-broker

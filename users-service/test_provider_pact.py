@@ -1,4 +1,6 @@
 
+import subprocess
+
 import pytest
 import asyncio
 import threading
@@ -79,10 +81,20 @@ def test_pact_verification_against_orders_service():
         broker_url="http://16.171.160.56:9292",
         provider="users-service",
         consumer_version_selectors=[{"latest": True}],
+        publish_version ="1.0.0",
         publish_verification_results=True,
-        provider_version=os.getenv("GITHUB_SHA", "dev"),
+        provider_version="1.0.0",
+        # provider_version=os.getenv("GITHUB_SHA", "dev"),  # ✅ REQUIRED
         verbose=True,
-        build_url = BUILD_URL
+        # build_url = BUILD_URL
     )
     
-    assert output == 0, f"Pact verification FAILED.\nThe Users service does not satisfy the Orders service contract.\n {logs}"
+    print(logs)
+    
+
+    assert output == 0, (
+        "Pact verification FAILED.\n"
+        "Check logs above for mismatch details.\n"
+    )
+        
+    # assert output == 0, f"Pact verification FAILED.\nThe Users service does not satisfy the Orders service contract.\n {logs}"

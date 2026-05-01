@@ -21,7 +21,6 @@ beforeAll(async () => {
 
 describe("Orders → Users Service Contract", () => {
 
-  // ── Interaction 1: fetch existing user ──────────────────────────────────────
   test("GET /users/:id — returns a user when the user exists", async () => {
     await provider
       .addInteraction({
@@ -49,7 +48,6 @@ describe("Orders → Users Service Contract", () => {
       });
   });
 
-  // ── Interaction 2: user not found ────────────────────────────────────────────
   test("GET /users/:id — returns null when user does not exist", async () => {
     await provider
       .addInteraction({
@@ -69,7 +67,6 @@ describe("Orders → Users Service Contract", () => {
       });
   });
 
-  // ── Interaction 3: userExists convenience method ──────────────────────────────
   test("userExists() — returns true when user is found", async () => {
     await provider
       .addInteraction({
@@ -93,7 +90,6 @@ describe("Orders → Users Service Contract", () => {
       });
   });
 
-  // ── Interaction 4: userExists returns false ───────────────────────────────────
   test("userExists() — returns false when user is not found", async () => {
     await provider
       .addInteraction({

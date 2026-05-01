@@ -1,3 +1,6 @@
+
+
+
 import pytest
 import threading
 import requests
@@ -73,12 +76,14 @@ def test_pact_with_consumer():
         broker_url="http://16.171.160.56:9292",
         provider="provider-python",
         consumer_version_selectors=[{"latest": True}],
+        publish_version ="1.0.0",
         publish_verification_results=True,
-        provider_version=os.getenv("GITHUB_SHA", "dev"),
-        build_url = BUILD_URL,
+        provider_version="1.0.0",
+        # provider_version=os.getenv("GITHUB_SHA", "dev"),
         verbose=True,
+        build_url = BUILD_URL
     )
-    
+        
     assert output == 0, f"Pact verification FAILED.\nThe Provider does not satisfy the Consumer Node contract.\n {logs}"
 
 
