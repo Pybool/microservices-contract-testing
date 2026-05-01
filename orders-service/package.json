@@ -9,7 +9,7 @@
     "test": "jest --testPathIgnorePatterns=pact",
     "test:pact": "jest --testPathPattern=pact --runInBand && npm run publish:pact",
     "test:all": "jest --runInBand",
-    "publish:pact": "npx pact-broker publish ./pacts --consumer-app-version=1.0.0 --broker-base-url=http://localhost:9292"
+    "publish:pact": "npx pact-broker publish ./pacts --consumer-app-version=1.0.0 --broker-base-url=http://16.171.160.56:9292"
   },
   "dependencies": {
     "axios": "^1.6.0",
