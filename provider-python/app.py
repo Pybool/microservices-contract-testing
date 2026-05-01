@@ -6,7 +6,7 @@ app = FastAPI(title="Provider Python Microservice")
 
 USERS = [
     {"id": 1, "name": "Alice", "email": "alice@example.com"},
-    {"id": 2, "name": "Bob"}, #I have removed email to make dis 1 fail deliberatley
+    {"id": 2, "name": "Bob", "email": "bob@example.com"}, #I have removed email to make dis 1 fail deliberatley
 ]
 
 
