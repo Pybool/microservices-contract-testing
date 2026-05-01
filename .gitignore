@@ -1,6 +1,7 @@
 /node_modules
 node_modules
 /docs
+.env
 
 
 echo "# microservices-contract-testing" >> README.md
