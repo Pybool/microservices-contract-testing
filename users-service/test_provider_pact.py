@@ -9,7 +9,7 @@ import uvicorn
 from pact import Verifier
 from app import app, _users
 
-BROKER_URL = os.getenv("BROKER_URL", "http://localhost:9292")
+BROKER_URL = os.getenv("BROKER_URL", "http://16.171.160.56:9292")
 
 
 def check_broker():
@@ -75,7 +75,7 @@ def test_pact_verification_against_orders_service():
     )
 
     output, _ = verifier.verify_with_broker(
-        broker_url="http://localhost:9292",
+        broker_url="http://16.171.160.56:9292",
         provider="users-service",
         consumer_version_selectors=[{"latest": True}],
         verbose=True,

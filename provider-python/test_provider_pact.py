@@ -6,7 +6,7 @@ from pact import Verifier
 from app import app, USERS
 import os
 
-BROKER_URL = os.getenv("BROKER_URL", "http://localhost:9292")
+BROKER_URL = os.getenv("BROKER_URL", "http://16.171.160.56:9292")
 
 
 def check_broker():
@@ -69,7 +69,7 @@ def test_pact_with_consumer():
     )
 
     output, _ = verifier.verify_with_broker(
-        broker_url="http://localhost:9292",
+        broker_url="http://16.171.160.56:9292",
         provider="provider-python",
         consumer_version_selectors=[{"latest": True}],
         publish_verification_results=True,
