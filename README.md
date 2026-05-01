@@ -128,12 +128,4 @@ npm install
 USERS_SERVICE_URL=http://localhost:5000 npm run dev
 ```
 
----
-
-## What to do when pact verification fails
-
-See **`docs/JIRA_BUG_REPORTING.md`** for the full Jira template,
-REST API snippet, and triage checklist.
-
----
 
