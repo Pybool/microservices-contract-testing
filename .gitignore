@@ -2,12 +2,4 @@
 node_modules
 /docs
 .env
-
-
-echo "# microservices-contract-testing" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M master
-git remote add origin https://github.com/Pybool/microservices-contract-testing.git
-git push -u origin master
+.env*

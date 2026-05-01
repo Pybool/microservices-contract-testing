@@ -1,6 +1,6 @@
 import { config } from "./config";
 
-const BROKER_URL = config.BROKER_URL || "http://localhost:9292";
+const BROKER_URL = config.PACT_BROKER_URL || "http://localhost:9292";
 
 export async function checkBroker() {
   try {
