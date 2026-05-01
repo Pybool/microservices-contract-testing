@@ -1,0 +1,174 @@
+{
+  "consumer": {
+    "name": "consumer-node"
+  },
+  "interactions": [
+    {
+      "description": "a request for user with id 1",
+      "providerStates": [
+        {
+          "name": "user with id 1 exists"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/users/1"
+      },
+      "response": {
+        "body": {
+          "email": "alice@example.com",
+          "id": 1,
+          "name": "Alice"
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$.email": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.id": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.name": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          },
+          "header": {},
+          "status": {}
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "a request for a non-existent user",
+      "providerStates": [
+        {
+          "name": "user with id 999 does not exist"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/users/999"
+      },
+      "response": {
+        "body": {
+          "detail": "User not found"
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$.detail": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          },
+          "header": {},
+          "status": {}
+        },
+        "status": 404
+      }
+    },
+    {
+      "description": "a request for all users",
+      "providerStates": [
+        {
+          "name": "users exist"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/users"
+      },
+      "response": {
+        "body": [
+          {
+            "email": "alice@example.com",
+            "id": 1,
+            "name": "Alice"
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type",
+                  "min": 1
+                }
+              ]
+            },
+            "$[*].email": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[*].id": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[*].name": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          },
+          "header": {},
+          "status": {}
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "12.5.2"
+    },
+    "pactRust": {
+      "ffi": "0.4.20",
+      "models": "1.2.0"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "provider-python"
+  }
+}

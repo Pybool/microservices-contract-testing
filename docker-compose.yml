@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  # Pact Broker
+  brokercast:
+    image: pactfoundation/pact-broker
+    ports:
+      - "9000:9292"
+    environment:
+      - PACT_BROKER_DATABASE_ADAPTER=sqlite
+      - PACT_BROKER_DATABASE_NAME=pact_broker.sqlite

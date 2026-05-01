@@ -1,0 +1,23 @@
+{"level":"info","message":"Fetched user from Users service","timestamp":"2026-05-01T07:28:49.952Z","userId":1}
+{"level":"info","message":"Fetched user from Users service","timestamp":"2026-05-01T07:28:50.217Z","userId":2}
+{"level":"info","message":"Fetched user from Users service","timestamp":"2026-05-01T07:32:55.212Z","userId":1}
+{"level":"info","message":"Fetched user from Users service","timestamp":"2026-05-01T07:32:55.631Z","userId":2}
+{"level":"info","message":"Order created","orderId":"88b7e408-7c2f-4af8-897f-460849a4db63","timestamp":"2026-05-01T07:32:59.917Z","totalCents":1000,"userId":1}
+{"level":"info","message":"Order created","orderId":"591bde19-a9a1-4974-ba1c-d8021c286eb7","timestamp":"2026-05-01T07:32:59.940Z","totalCents":1000,"userId":1}
+{"level":"info","message":"Order status updated","orderId":"591bde19-a9a1-4974-ba1c-d8021c286eb7","status":"confirmed","timestamp":"2026-05-01T07:32:59.944Z"}
+{"level":"info","message":"Order created","orderId":"6721f7e4-0941-4dd0-a66f-55a341ecc93d","timestamp":"2026-05-01T07:32:59.949Z","totalCents":1000,"userId":1}
+{"level":"info","message":"Order status updated","orderId":"6721f7e4-0941-4dd0-a66f-55a341ecc93d","status":"cancelled","timestamp":"2026-05-01T07:32:59.952Z"}
+{"level":"info","message":"Fetched user from Users service","timestamp":"2026-05-01T09:04:36.784Z","userId":1}
+{"level":"info","message":"Fetched user from Users service","timestamp":"2026-05-01T09:04:37.561Z","userId":2}
+{"level":"info","message":"Order created","orderId":"2ca0e930-663d-4c71-a0b1-f6bfa8192b48","timestamp":"2026-05-01T09:04:38.700Z","totalCents":1000,"userId":1}
+{"level":"info","message":"Order created","orderId":"a1f74e02-ee8c-4ca0-862d-b55b9702301d","timestamp":"2026-05-01T09:04:38.761Z","totalCents":1000,"userId":1}
+{"level":"info","message":"Order status updated","orderId":"a1f74e02-ee8c-4ca0-862d-b55b9702301d","status":"confirmed","timestamp":"2026-05-01T09:04:38.768Z"}
+{"level":"info","message":"Order created","orderId":"ede6aa95-7e0e-403e-b036-724e3c2ac613","timestamp":"2026-05-01T09:04:38.786Z","totalCents":1000,"userId":1}
+{"level":"info","message":"Order status updated","orderId":"ede6aa95-7e0e-403e-b036-724e3c2ac613","status":"cancelled","timestamp":"2026-05-01T09:04:38.802Z"}
+{"level":"info","message":"Fetched user from Users service","timestamp":"2026-05-01T09:09:49.890Z","userId":1}
+{"level":"info","message":"Fetched user from Users service","timestamp":"2026-05-01T09:09:50.514Z","userId":2}
+{"level":"info","message":"Order created","orderId":"1f1c53ed-116c-4e00-8613-f82150ef8ea0","timestamp":"2026-05-01T09:09:51.347Z","totalCents":1000,"userId":1}
+{"level":"info","message":"Order created","orderId":"f8337b0e-925d-48ae-87a1-3f80b140c6ee","timestamp":"2026-05-01T09:09:51.376Z","totalCents":1000,"userId":1}
+{"level":"info","message":"Order status updated","orderId":"f8337b0e-925d-48ae-87a1-3f80b140c6ee","status":"confirmed","timestamp":"2026-05-01T09:09:51.380Z"}
+{"level":"info","message":"Order created","orderId":"20cfc31f-b3c7-4661-b8b1-1b34ec74e050","timestamp":"2026-05-01T09:09:51.394Z","totalCents":1000,"userId":1}
+{"level":"info","message":"Order status updated","orderId":"20cfc31f-b3c7-4661-b8b1-1b34ec74e050","status":"cancelled","timestamp":"2026-05-01T09:09:51.397Z"}
